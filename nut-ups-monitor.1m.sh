@@ -2,9 +2,9 @@
 
 # SwiftBar NUT UPS Monitor
 # Monitors UPS status using upsc command
-# Configure your UPS address below
-
+# Configure your UPS ID and address below
 UPS_ADDRESS="ups@192.168.50.170"
+# Location of upsc command
 UPSC_PATH="/opt/homebrew/bin/upsc"
 
 # Get UPS data
@@ -21,6 +21,7 @@ fi
 
 # Extract required information
 MODEL=$(echo "$UPS_DATA" | grep "ups.model:" | cut -d: -f2- | xargs)
+MFR=$(echo "$UPS_DATA" | grep "ups.mfs:" | cut -d: -f2- | xargs)
 CHARGE=$(echo "$UPS_DATA" | grep "battery.charge:" | cut -d: -f2- | xargs)
 BATTERYSTATUS=$(echo "$UPS_DATA" | grep "battery.status:" | cut -d: -f2- | xargs)
 UPSSTATUS=$(echo "$UPS_DATA" | grep "ups.status:" | cut -d: -f2- | xargs)
@@ -60,6 +61,7 @@ fi
 # Display in SwiftBar
 echo "$EMOJI $UPSSTATUS"
 echo "---"
+echo "MFR: $MFR"
 echo "Model: $MODEL"
 echo "Battery Charge: $CHARGE%"
 echo "Battery Status: $BATTERYSTATUS"
