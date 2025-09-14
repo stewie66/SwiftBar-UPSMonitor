@@ -2,6 +2,7 @@
 
 # SwiftBar NUT UPS Monitor
 # Monitors UPS status using upsc command
+# Rename filename to change update frequency e.g. for 5 minutes nut-ups-monitor.5m.sh
 # Configure your UPS ID and address below
 UPS_ADDRESS="ups@192.168.50.170"
 # Location of upsc command
