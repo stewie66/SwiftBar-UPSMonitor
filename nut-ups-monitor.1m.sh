@@ -21,7 +21,7 @@ fi
 
 # Extract required information
 MODEL=$(echo "$UPS_DATA" | grep "ups.model:" | cut -d: -f2- | xargs)
-MFR=$(echo "$UPS_DATA" | grep "ups.mfs:" | cut -d: -f2- | xargs)
+MFR=$(echo "$UPS_DATA" | grep "ups.mfr:" | cut -d: -f2- | xargs)
 CHARGE=$(echo "$UPS_DATA" | grep "battery.charge:" | cut -d: -f2- | xargs)
 BATTERYSTATUS=$(echo "$UPS_DATA" | grep "battery.status:" | cut -d: -f2- | xargs)
 UPSSTATUS=$(echo "$UPS_DATA" | grep "ups.status:" | cut -d: -f2- | xargs)
